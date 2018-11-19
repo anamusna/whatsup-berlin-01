@@ -1,46 +1,45 @@
 import './styles.css';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import epitath from 'epitath';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import base from '../base';
 
-import { RenderCheckBox, Email, Password } from './helpers';
+import { RenderCheckBox } from './helpers';
 
 class Login extends React.Component {
 	constructor() {
 		super();
 
 		this.state = {
-			inputPsw   : '',
-			inputEmail : ''
+			email    : '',
+			password : ''
 		};
 
 		this.getUser = this.getUser.bind(this);
 	}
 
 	componentWillMount() {
-		this.whatsupRef = base.syncState('inputEmail', {
+		this.Ref = base.syncState('email', {
 			context : this,
-			state   : 'inputEmail'
+			state   : 'email'
+		});
+		this.Ref = base.syncState('password', {
+			context : this,
+			state   : 'password'
 		});
 	}
 
 	getUser(e) {
 		if (e.target.name === 'password') {
 			this.setState({
-				inputPsw : e.target.value
+				password : e.target.value
 			});
 		}
 		if (e.target.name === 'email') {
 			this.setState({
-				inputEmail : e.target.value
+				email : e.target.value
 			});
 		}
 	}
