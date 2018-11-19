@@ -13,19 +13,19 @@ class Login extends React.Component {
 		super();
 
 		this.state = {
-			email    : '',
-			password : ''
+			loginEmail    : '',
+			loginPassword : ''
 		};
 
 		this.getUser = this.getUser.bind(this);
 	}
 
 	componentWillMount() {
-		this.Ref = base.syncState('email', {
+		this.Ref = base.syncState('loginEmail', {
 			context : this,
 			state   : 'email'
 		});
-		this.Ref = base.syncState('password', {
+		this.Ref = base.syncState('loginPassword', {
 			context : this,
 			state   : 'password'
 		});
@@ -47,14 +47,20 @@ class Login extends React.Component {
 		return (
 			<div className="bm-padding">
 				<div className="bm-center bm-center-content login-register-padding">
-					<form id="form-login">
+					<form id="form-login" style={{ width: '500px', margin: 'auto' }}>
+						<h2>Please sign in</h2>
 						<FormControl fullWidth>
 							<InputLabel>Email</InputLabel>
-							<Input type="email" name="email" onChange={this.getUser} />
+							<Input type="email" name="email" placeholder="email@example.com" onChange={this.getUser} />
 						</FormControl>
 						<FormControl fullWidth>
 							<InputLabel>Password</InputLabel>
-							<Input type="password" name="password" onChange={this.getUser} />
+							<Input
+								type="password"
+								name="password"
+								placeholder="enter password"
+								onChange={this.getUser}
+							/>
 						</FormControl>
 						<div className="row">
 							<Grid item xs={12}>

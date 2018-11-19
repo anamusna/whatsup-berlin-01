@@ -9,7 +9,7 @@ body {
   margin: 0;
   font-size: 0.9375rem;
   font-weight: 400;
-  background-color: #fff;
+  background-color: pink;
 }
 label {
   margin-bottom: 0.5rem;
@@ -152,10 +152,7 @@ form button .icon {
 form button.btn-blue:hover .icon {
   background-color: #00aeef;
 }
-#tabs {
-  display: table;
-  width: 100%;
-}
+
 #tabs #tab {
   height: 55px;
   line-height: 55px;
@@ -165,10 +162,10 @@ form button.btn-blue:hover .icon {
   width: 50%;
 }
 #tabs #tab:hover {
-  color: #b6a694;
+  color: #f2f2f2;
 }
 #tabs #tab.active {
-  background: #002f40;
+  background: green;
   color: #fff;
   pointer-events: none;
   cursor: default;

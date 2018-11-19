@@ -22,11 +22,11 @@ class Signup extends React.Component {
 	}
 
 	componentWillMount() {
-		this.Ref = base.syncState('email', {
+		this.Ref = base.syncState('signupEmail', {
 			context : this,
 			state   : 'email'
 		});
-		this.Ref = base.syncState('password', {
+		this.Ref = base.syncState('signupPassword', {
 			context : this,
 			state   : 'password'
 		});
@@ -81,15 +81,16 @@ class Signup extends React.Component {
 	render() {
 		return (
 			<div className="bm-padding">
-				<FormErrors formErrors={this.state.formErrors} />
 				<div className="bm-center bm-center-content login-register-padding">
-					<form id="form-login">
+					<form id="form-login" style={{ width: '500px', margin: 'auto' }}>
+						<h2>Signup to start</h2>
 						<FormControl fullWidth className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
 							<InputLabel>Email</InputLabel>
+							{console.log(this.state.email)}
 							<Input
 								type="email"
 								name="email"
-								value={this.state.email}
+								placeholder="email@example.com"
 								onChange={this.handleUserInput}
 								required
 							/>
@@ -102,7 +103,7 @@ class Signup extends React.Component {
 							<Input
 								type="password"
 								name="password"
-								value={this.state.password}
+								placeholder="enter password"
 								onChange={this.handleUserInput}
 								required
 							/>
@@ -115,11 +116,12 @@ class Signup extends React.Component {
 							<Input
 								type="password"
 								name="repeat_password"
-								value={this.state.repeat_password}
+								placeholder="repeat password"
 								onChange={this.handleUserInput}
 								required
 							/>
 						</FormControl>
+						<FormErrors formErrors={this.state.formErrors} />
 						<div className="row">
 							<Grid item xs={12}>
 								<button variant="extendedFab" className="btn-success" disabled={!this.state.formValid}>
