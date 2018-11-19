@@ -81,13 +81,12 @@ class Signup extends React.Component {
 	render() {
 		return (
 			<div className="bm-padding">
+				<FormErrors formErrors={this.state.formErrors} />
 				<div className="bm-center bm-center-content login-register-padding">
-					<FormErrors formErrors={this.state.formErrors} />
 					<form id="form-login">
 						<FormControl fullWidth className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-							<InputLabel htmlFor="component-simple">Email</InputLabel>
+							<InputLabel>Email</InputLabel>
 							<Input
-								id="component-simple"
 								type="email"
 								name="email"
 								value={this.state.email}
@@ -99,9 +98,8 @@ class Signup extends React.Component {
 							fullWidth
 							id="pass"
 							className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-							<InputLabel htmlFor="component-simple">Password</InputLabel>
+							<InputLabel>Password</InputLabel>
 							<Input
-								id="component-simple"
 								type="password"
 								name="password"
 								value={this.state.password}
@@ -113,9 +111,8 @@ class Signup extends React.Component {
 							fullWidth
 							id="pass"
 							className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
-							<InputLabel htmlFor="component-simple">Repeat Password</InputLabel>
+							<InputLabel>Repeat Password</InputLabel>
 							<Input
-								id="component-simple"
 								type="password"
 								name="repeat_password"
 								value={this.state.repeat_password}

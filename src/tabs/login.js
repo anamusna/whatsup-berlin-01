@@ -49,12 +49,12 @@ class Login extends React.Component {
 				<div className="bm-center bm-center-content login-register-padding">
 					<form id="form-login">
 						<FormControl fullWidth>
-							<InputLabel htmlFor="component-simple">Email</InputLabel>
-							<Input id="component-simple" type="email" name="email" onChange={this.getUser} />
+							<InputLabel>Email</InputLabel>
+							<Input type="email" name="email" onChange={this.getUser} />
 						</FormControl>
 						<FormControl fullWidth>
-							<InputLabel htmlFor="component-simple">Password</InputLabel>
-							<Input id="component-simple" type="password" name="password" onChange={this.getUser} />
+							<InputLabel>Password</InputLabel>
+							<Input type="password" name="password" onChange={this.getUser} />
 						</FormControl>
 						<div className="row">
 							<Grid item xs={12}>
