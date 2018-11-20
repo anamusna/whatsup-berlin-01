@@ -20,15 +20,15 @@ class Tabs extends React.Component {
 	render() {
 		const { view } = this.state;
 		return (
-			<React.Fragment className="center">
+			<React.Fragment className="center form col-md-4 mt-5 ml-5">
 				<Logo />
-				<div id="control" style={{ width: '500px', margin: 'auto' }}>
+				<div id="control ">
 					{view === 0 ? (
 						<div id="tabs">
-							<Button id="tab" href="#" className="active btn btn-danger">
+							<Button id="tab" href="#" className="active">
 								Login
 							</Button>
-							<Button className="btn btn-danger" id="tab" href="#" onClick={() => this.changeView(1)}>
+							<Button id="tab" href="#" onClick={() => this.changeView(1)}>
 								Register
 							</Button>
 						</div>

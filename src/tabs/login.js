@@ -13,13 +13,16 @@ class Login extends React.Component {
 		super();
 
 		this.state = {
-			loginEmail    : '',
-			loginPassword : ''
+			email    : '',
+			password : ''
 		};
-
-		this.getUser = this.getUser.bind(this);
 	}
 
+	handleChange = (e) => {
+		this.setState({
+			[e.target.id]: e.target.value
+		});
+	};
 	componentWillMount() {
 		this.Ref = base.syncState('loginEmail', {
 			context : this,
@@ -31,45 +34,37 @@ class Login extends React.Component {
 		});
 	}
 
-	getUser(e) {
-		if (e.target.name === 'password') {
-			this.setState({
-				password : e.target.value
-			});
-		}
-		if (e.target.name === 'email') {
-			this.setState({
-				email : e.target.value
-			});
-		}
-	}
 	render() {
 		return (
-			<div className="bm-padding">
-				<div className="bm-center bm-center-content login-register-padding">
-					<form id="form-login" style={{ width: '500px', margin: 'auto' }}>
-						<h2>Please sign in</h2>
-						<FormControl fullWidth>
+			<div className="bm-padding ">
+				<div className="bm-center-content row">
+					<form id="form-login" className="col">
+						<br />
+						<h2 className="text-center" style={{ fontWeight: '700' }}>
+							Please sign in
+						</h2>
+						<FormControl fullWidth className="row">
 							<InputLabel>Email</InputLabel>
-							<Input type="email" name="email" placeholder="email@example.com" onChange={this.getUser} />
+							<Input
+								type="email"
+								name="email"
+								id="email"
+								placeholder="email@example.com"
+								onChange={this.handleChange}
+							/>
 						</FormControl>
-						<FormControl fullWidth>
+						<FormControl fullWidth className="row">
 							<InputLabel>Password</InputLabel>
 							<Input
+								id="password"
 								type="password"
 								name="password"
 								placeholder="enter password"
-								onChange={this.getUser}
+								onChange={this.handleChange}
 							/>
 						</FormControl>
-						<div className="row">
-							<Grid item xs={12}>
-								<button variant="extendedFab" className="btn-info">
-									Login
-								</button>
-							</Grid>
-						</div>
-						<div className="row form-footer">
+
+						<div className="row ">
 							<Grid item xs={6}>
 								<RenderCheckBox />
 							</Grid>
@@ -78,6 +73,13 @@ class Login extends React.Component {
 								<a id="reset-password" href="/">
 									<b>Forgotten password?</b>
 								</a>
+							</Grid>
+						</div>
+						<div className="row">
+							<Grid item xs={12}>
+								<button variant="extendedFab" className="btn-info">
+									Login
+								</button>
 							</Grid>
 						</div>
 					</form>

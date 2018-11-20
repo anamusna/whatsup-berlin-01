@@ -1,7 +1,6 @@
 import './styles.css';
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { RenderCheckBox } from './helpers';
 import { FormErrors } from './FormErrors';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -21,6 +20,19 @@ class Signup extends React.Component {
 		};
 	}
 
+	submit = (e) => {
+		e.preventDefault();
+		const user = {
+			data : this.state
+		};
+	};
+
+	handleUserInput = (e) => {
+		this.setState({
+			[e.target.id]: e.target.value
+		});
+	};
+
 	componentWillMount() {
 		this.Ref = base.syncState('signupEmail', {
 			context : this,
@@ -31,14 +43,6 @@ class Signup extends React.Component {
 			state   : 'password'
 		});
 	}
-
-	handleUserInput = (e) => {
-		const name = e.target.name;
-		const value = e.target.value;
-		this.setState({ [name]: value }, () => {
-			this.validateField(name, value);
-		});
-	};
 
 	validateField(fieldName, value) {
 		let fieldValidationErrors = this.state.formErrors;
@@ -81,13 +85,19 @@ class Signup extends React.Component {
 	render() {
 		return (
 			<div className="bm-padding">
-				<div className="bm-center bm-center-content login-register-padding">
-					<form id="form-login" style={{ width: '500px', margin: 'auto' }}>
-						<h2>Signup to start</h2>
-						<FormControl fullWidth className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
+				<div className="bm-center-content row">
+					<form id="form-login" className="col" onSubmit={this.submit}>
+						<br />
+						<h2 className="text-center" style={{ fontWeight: '700' }}>
+							Signup to start
+						</h2>
+						<FormControl
+							fullWidth
+							className={`form-group row ${this.errorClass(this.state.formErrors.email)}`}>
 							<InputLabel>Email</InputLabel>
 							{console.log(this.state.email)}
 							<Input
+								id="email"
 								type="email"
 								name="email"
 								placeholder="email@example.com"
@@ -97,10 +107,10 @@ class Signup extends React.Component {
 						</FormControl>
 						<FormControl
 							fullWidth
-							id="pass"
-							className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+							className={`form-group row ${this.errorClass(this.state.formErrors.password)}`}>
 							<InputLabel>Password</InputLabel>
 							<Input
+								id="password"
 								type="password"
 								name="password"
 								placeholder="enter password"
@@ -110,8 +120,7 @@ class Signup extends React.Component {
 						</FormControl>
 						<FormControl
 							fullWidth
-							id="pass"
-							className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
+							className={`form-group row ${this.errorClass(this.state.formErrors.password)}`}>
 							<InputLabel>Repeat Password</InputLabel>
 							<Input
 								type="password"
@@ -127,17 +136,6 @@ class Signup extends React.Component {
 								<button variant="extendedFab" className="btn-success" disabled={!this.state.formValid}>
 									Register
 								</button>
-							</Grid>
-						</div>
-						<div className="row form-footer">
-							<Grid item xs={6}>
-								<RenderCheckBox />
-							</Grid>
-
-							<Grid item xs={6} style={{ textAlign: 'right' }}>
-								<a id="reset-password" href="/">
-									<b>Forgotten password?</b>
-								</a>
 							</Grid>
 						</div>
 					</form>

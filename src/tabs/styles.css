@@ -152,7 +152,10 @@ form button .icon {
 form button.btn-blue:hover .icon {
   background-color: #00aeef;
 }
-
+#tabs{
+  max-width: 500px;
+  margin: auto;
+}
 #tabs #tab {
   height: 55px;
   line-height: 55px;
@@ -166,7 +169,7 @@ form button.btn-blue:hover .icon {
 }
 #tabs #tab.active {
   background: green;
-  color: #fff;
+
   pointer-events: none;
   cursor: default;
 }
@@ -179,11 +182,11 @@ form button.btn-blue:hover .icon {
   cursor: default;
 }
 .login-register-padding {
-  padding-top: 50px !important;
+  padding-top: 20px !important;
   padding-bottom: 120px !important;
 }
 #form-login {
-  max-width: 434px;
+  max-width: 500px;
   margin: 0 auto;
 }
 #form-login button {
@@ -193,13 +196,11 @@ form button.btn-blue:hover .icon {
   margin-bottom: 0;
 }
 #form-login #reset-password {
-  color: #cdc3b7;
+  color: red;
   font-size: 15px;
   margin-right: 23px;
 }
-form {
-  margin: 28px 0 24px;
-}
+
 @media (min-width: 991.98px) and (max-width: 1075px) {
   form label {
     padding-left: 10px;
